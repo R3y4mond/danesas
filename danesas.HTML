@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galletas Danesas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f8e9; /* Fondo muy suave verde claro */
+            color: #333;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Banner principal */
+        .banner {
+            background-image: url('https://img.freepik.com/fotos-premium/galletas-jengibre-menta-caseras-matcha-chocolate-taza-te-sobre-mesa_171081-2207.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            color: black;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 8px;
+        }
+        .banner h1 {
+            font-size: 4.5em; /* Aumenté el tamaño */
+            margin: 0;
+            color: black; /* Negro */
+        }
+        .banner p {
+            font-size: 2.2em; /* Aumenté el tamaño */
+            margin-top: 10px;
+            color: black; /* Negro */
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #388E3C; /* Verde oscuro */
+            margin: 40px 0 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .text-section {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .impacto, .nuestro-producto, .compra, .mision-vision {
+            background-color: #A5D6A7; /* Verde suave */
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .impacto h3, .nuestro-producto h3, .compra h3, .mision-vision h3 {
+            font-size: 2.2em; /* Aumenté el tamaño */
+            color: #388E3C; /* Verde oscuro */
+            margin-bottom: 15px;
+        }
+        .links a {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 15px 0;
+            background-color: #4CAF50; /* Verde medio */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        .links a:hover {
+            background-color: #388E3C; /* Verde oscuro */
+        }
+        .footer {
+            background-color: #388E3C; /* Verde oscuro */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .footer h3 {
+            color: #fff;
+            font-size: 1.4em;
+        }
+        .footer p {
+            color: #ffffff;
+            font-size: 1em;
+        }
+        .footer a {
+            color: #A5D6A7; /* Verde suave */
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Carrusel de imágenes (Nuestro Producto) */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+        }
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            display: none; /* Escondemos las imágenes por defecto */
+            border-radius: 12px;
+        }
+        .carousel img.active {
+            display: block; /* Mostramos la imagen activa */
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            font-size: 1.5em;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Mensaje de información del producto en desarrollo */
+        #pedido-info {
+            background-color: #C6FF00; /* Verde lima */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+    </style>
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel img');
+            if (index >= slides.length) currentSlide = 0;
+            else if (index < 0) currentSlide = slides.length - 1;
+            else currentSlide = index;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function togglePedidoInfo() {
+            const info = document.getElementById("pedido-info");
+            info.style.display = info.style.display === "none" ? "block" : "none";
+        }
+
+        window.onload = function() {
+            showSlide(currentSlide);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner principal -->
+        <div class="banner">
+            <h1>Galletas Danesas</h1>
+            <p>Galletas 100% naturales y deliciosas para cuidar tu salud y disfrutar de un gran sabor.</p>
+        </div>
+
+        <!-- Quiénes somos -->
+        <div class="text-section">
+            <h2 class="section-title">¿Quiénes somos?</h2>
+            <p>Somos un grupo del alumnado de la escuela Ricardo Flores Magón, Conalep 252 Orizaba, del grupo 111 Química Industrial, primer semestre. Este es un proyecto escolar que planeamos desarrollar con el objetivo de ofrecer al público una opción de galletas saludables.</p>
+        </div>
+
+        <!-- Misión, Visión y Objetivos -->
+        <div class="mision-vision">
+            <h3>Nuestra Gran Idea</h3>
+            <h4>Misión</h4>
+            <p>Alcanzar una producción masiva de galletas con grandes ventas con sucursales en Orizaba y distintos estados, manteniendo las necesidades y preferencias de nuestros clientes y el bienestar de cada una de las comunidades con las que tengamos un gran alcance.</p>
+            <h4>Visión</h4>
+            <p>La empresa crecerá muy rápidamente, expandiéndose en el estado y siendo consolidada exitosamente en el ámbito de la comida y los postres modernos. Queremos ser reconocidos como una empresa de constante innovación, mejora de calidad y de un excelente servicio, estableciendo alianzas estratégicas con distintas industrias líderes y empresas para ampliar nuestras oportunidades de crecimiento.</p>
+            <h4>Objetivos</h4>
+            <ul>
+                <li>Desarrollar e implementar nuevas tecnologías, productos y sistemas para mejorar nuestra eficiencia y productividad.</li>
+                <li>Implementar prácticas sostenibles en nuestros procesos para reducir el impacto ambiental y crear una empresa sostenible.</li>
+            </ul>
+        </div>
+
+        <!-- Impacto -->
+        <div class="impacto">
+            <h3>Impacto en la salud</h3>
+            <p>El consumo de nuestras galletas no solo es una opción sabrosa, sino también una manera de mejorar tu alimentación. Gracias a la selección de ingredientes naturales y procesos libres de químicos, nuestras galletas contribuyen a una dieta balanceada. Además, al ser elaboradas con ingredientes como avena, semillas y especias naturales, nuestras galletas son ricas en fibra y antioxidantes, ayudando a mejorar la digestión y reforzar el sistema inmune.</p>
+        </div>
+
+        <!-- Nuestro Producto (Carrusel) -->
+        <div class="nuestro-producto">
+            <h3>Nuestro Producto</h3>
+            <p>Elaboramos galletas saludables y deliciosas, ideales para quienes buscan mejorar su dieta sin sacrificar sabor. Ofrecemos una variedad de opciones, desde galletas de jengibre, chocolate, hasta opciones de matcha y menta.</p>
+            
+            <!-- Carrusel de imágenes -->
+            <div class="carousel">
+                <img src="https://carlotaeatmeraw.com/storage/2018/01/GALLETAS-DE-TE-VERDE-MATCHA2-1024x682.jpg" alt="Galletas de Té Verde Matcha" class="active">
+                <img src="https://recipe1.ezmember.co.kr/cache/recipe/2022/01/19/f361f1020b71506c72e668c5168386041_f.jpg" alt="Galletas de Té Verde Matcha">
+            </div>
+
+            <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+            <button class="carousel-button next" onclick="nextSlide()">❯</button>
+        </div>
+
+        <!-- Elaboración de nuestro producto -->
+        <div class="text-section">
+            <h2 class="section-title">Elaboración de nuestro producto</h2>
+            <p>Al ser nuestro producto novedoso, fue hecho caseramente. Aquí te dejamos una guía sobre cómo elaboramos nuestras deliciosas galletas. ¡Haz clic en el siguiente enlace para ver más!</p>
+            <a href="https://www.youtube.com/watch?v=85KQaanjdPs" target="_blank">
+                <img class="video-thumbnail" src="https://img.youtube.com/vi/85KQaanjdPs/0.jpg" alt="Miniatura del video">
+            </a>
+        </div>
+
+        <!-- Compra -->
+        <div class="compra">
+            <h3>¿Quieres comprar nuestras galletas?</h3>
+            <p>Visita nuestra tienda en línea y disfruta de la comodidad de comprar nuestras galletas saludables desde la comodidad de tu hogar.</p>
+            <div class="links">
+                <a href="#" onclick="togglePedidoInfo()">Este producto está en fase de desarrollo. Haz clic para más detalles.</a>
+            </div>
+
+            <!-- Información del producto en desarrollo -->
+            <div id="pedido-info" style="display: none;">
+                <p><strong>¡Nuestro producto está en fase de desarrollo!</strong></p>
+                <p>Si estás interesado en realizar pedidos, por favor contáctanos al correo: <strong>galletasdanesas@outlook.com</strong></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>Contáctanos</h3>
+            <ul>
+                <li>Natasha Yamilet Domínguez Borges</li>
+                <li>Cristian Ramos Rodríguez</li>
+                <li>Karime Itzel Paz Ruiz</li>
+                <li>Yanilen Lucas Romero</li>
+                <li>Oscar Gael Ramírez Jiménez</li>
+                <li>Ramón Jiménez Dimas</li>
+            </ul>
+            <p><a href="mailto:galletasdanesas@outlook.com">galletasdanesas@outlook.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
